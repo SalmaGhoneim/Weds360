@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
-import Home from "./screens/Home";
+import Home from "./screens/Home/Home";
 import Categories from "./screens/Categories";
 import SingleCategory from "./screens/SingleCategory";
 import SinglePhoto from "./screens/SinglePhoto";
@@ -12,14 +12,18 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <div className="site-content">
-          <Header />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/categories" exact component={Categories} />
-            <Route path="/category" component={SingleCategory} />
-            <Route path="/photo" component={SinglePhoto} />
-          </Switch>
+        <div className="siteContent">
+          <div className="allScreen">
+            <div className="mainApp">
+              <Header />
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/categories" exact component={Categories} />
+                <Route path="/category" component={SingleCategory} />
+                <Route path="/photo" component={SinglePhoto} />
+              </Switch>
+            </div>
+          </div>
         </div>
         <Footer />
       </div>

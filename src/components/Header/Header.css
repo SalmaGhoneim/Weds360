@@ -1,16 +1,12 @@
-.body {
-  width: 100%;
-  height: 160px;
-}
 .navBar {
-  margin-top: 30px;
+  margin: 15px 0px 0px 0px;
   display: inline-flex;
   align-items: flex-end;
   max-width: 1100px;
-  width: 90%;
-  min-width: 300px;
   justify-content: center;
   flex-direction: row;
+  height: 100px;
+  position: relative;
 }
 .navBarSegment {
   padding: 0px 15px 0px 15px;
@@ -21,9 +17,27 @@
   align-items: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  position: relative;
 }
 .navBarLogo {
   width: 10%;
   margin-right: 15px;
   margin-left: 15px;
+}
+
+@media only screen and (min-width: 320px) {
+  /* For tablets: */
+  .navBarSegment {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .navBar {
+    display: inline-flex;
+  }
+  .navBarSegment {
+    display: inline-flex;
+  }
 }

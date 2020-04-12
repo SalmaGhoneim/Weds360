@@ -1,0 +1,35 @@
+.allBody {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.main {
+  max-width: 1100px;
+  min-width: 300px;
+  width: 92%;
+  text-align: start;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.treeNavLink {
+  color: #008174;
+  text-transform: uppercase;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.treeLabel {
+  font-size: 18px;
+  margin: 0px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.treeArrow {
+  height: 100%;
+  width: auto;
+}
