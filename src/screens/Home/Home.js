@@ -6,19 +6,6 @@ import Gallery from "../../components/Gallery/Gallery";
 import Services from "../../components/Services/Services";
 import styled from "styled-components";
 
-const pageNumberBox = styled.div`
-  width: 25px;
-  height: 25px;
-  background-color: transparent;
-  color: #008174;
-  border: 1px solid rgb(211, 211, 211);
-  border-radius: 2px;
-  line-height: 25px;
-  padding: 2px 5px 2px 5px;
-  cursor: pointer;
-  font-size: 14px;
-`;
-
 const Home = () => {
   let tree = [
     { id: "1", name: "Gallery", to: "/categories" },

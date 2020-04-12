@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./Header.css";
 import logo from "../../assets/weds360Logo.png";
@@ -10,6 +10,7 @@ const NavButton = styled.label`
   height: 100%;
   line-height: 45px;
   cursor: pointer;
+  position: relative;
   text-transform: uppercase;
 `;
 
@@ -51,8 +52,8 @@ const Header = () => {
   });
 
   const ShowDropDown = () => {
-    // let fu = parent.getBoundingClientRect();
-    // let centerX = fu.left + 0.5 * parent.getBoundingClientRect().width;
+    let parentInfo = parent.getBoundingClientRect();
+    let centerX = parentInfo.left + 0.5 * parentInfo.width;
     let options = [
       { id: "1", name: "Designers", to: "https://medium.com/@salma_ghoneim" },
       {
@@ -69,8 +70,8 @@ const Header = () => {
     setDropDownStatus({
       ...dropDownStatus,
       isOpen: true,
-      options: options
-      // left: centerX - 50
+      options: options,
+      left: centerX - 50
     });
   };
   const HideDropDown = () => {
@@ -81,14 +82,6 @@ const Header = () => {
       <div className="navBar">
         <div className="navBarSegment">
           <NavButton>360 Planner</NavButton>
-          {/* <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "100px",
-              alignItems: "center"
-            }}
-          > */}
           <NavButton
             onMouseEnter={ShowDropDown}
             onMouseLeave={HideDropDown}
@@ -96,35 +89,7 @@ const Header = () => {
           >
             Her
           </NavButton>
-          {/* <NavBarDropDown
-              onMouseEnter={ShowDropDown}
-              onMouseLeave={HideDropDown}
-              style={{
-                marginLeft: dropDownStatus.left,
-                display: "flex"
-                // display: dropDownStatus.isOpen ? "flex" : "none"
-              }}
-            >
-              {dropDownStatus.options.map((option, i) => {
-                let styles = {};
-                if (i == dropDownStatus.options.length - 1) {
-                  styles.borderBottom = "none";
-                }
-                return (
-                  <NavBarSelectOption style={styles} key={option.id}>
-                    <Link
-                      href={option.to}
-                      title={option.name}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {option.name}
-                    </Link>
-                  </NavBarSelectOption>
-                );
-              })}
-            </NavBarDropDown> 
-          </div>*/}
+
           <NavButton>Him</NavButton>
           <NavButton>The Wedding</NavButton>
         </div>
@@ -135,6 +100,34 @@ const Header = () => {
           <NavButton>Ideas & more</NavButton>
         </div>
       </div>
+      <NavBarDropDown
+        onMouseEnter={ShowDropDown}
+        onMouseLeave={HideDropDown}
+        style={{
+          left: dropDownStatus.left,
+          position: "absolute",
+          display: dropDownStatus.isOpen ? "flex" : "none"
+        }}
+      >
+        {dropDownStatus.options.map((option, i) => {
+          let styles = {};
+          if (i == dropDownStatus.options.length - 1) {
+            styles.borderBottom = "none";
+          }
+          return (
+            <NavBarSelectOption style={styles} key={option.id}>
+              <Link
+                href={option.to}
+                title={option.name}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {option.name}
+              </Link>
+            </NavBarSelectOption>
+          );
+        })}
+      </NavBarDropDown>
     </div>
   );
 };
