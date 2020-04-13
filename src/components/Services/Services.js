@@ -77,7 +77,8 @@ const Services = () => {
                   style={{
                     fontSize: "12px",
                     color: "rgb(51,51,51)",
-                    lineHeight: "2"
+                    lineHeight: "2",
+                    marginBottom: "0px"
                   }}
                 >
                   {services[0].text}
