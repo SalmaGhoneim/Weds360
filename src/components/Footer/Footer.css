@@ -1,0 +1,83 @@
+.footerMain {
+  background-color: black;
+  width: 100%;
+  color: white;
+  font-size: 10px;
+}
+.socialMedia {
+  width: auto;
+  height: 10px;
+  margin: 0px 5px 10px 0px;
+}
+.copyright {
+  width: auto;
+  height: 8px;
+  margin: 3px 3px 0px 0px;
+}
+.largeText {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0px 10px 0px;
+}
+.lightWeight {
+  font-weight: 100;
+}
+.oneLine {
+  display: flex;
+  justify-content: center;
+}
+.plus360 {
+  padding: 0px 2px 0px 2px;
+  color: rgb(51, 122, 183);
+  font-weight: 500;
+}
+.bottom {
+  margin-top: auto;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+}
+
+p {
+  margin: 0px 0px 5px 0px;
+}
+a {
+  text-decoration: none;
+}
+@media only screen and (min-width: 430px) {
+  /* For tablets: */
+  .footerBody {
+    height: 122px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .textAlign {
+    text-align: right;
+  }
+  .imageAlign {
+    text-align: left;
+  }
+  .socialMedia {
+    height: 10px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .footerBody {
+    height: 85px;
+    flex: 7;
+    max-width: 92%;
+    padding: 0px 10px 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .oneLine {
+    display: flex;
+  }
+  .socialMedia {
+    height: 15px;
+  }
+}
