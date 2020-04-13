@@ -1,3 +1,14 @@
+.allScreenHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.mainAppHeader {
+  display: flex;
+  max-width: 1100px;
+  justify-content: flex-start;
+  flex-direction: column;
+}
 .navBar {
   margin: 15px 0px 0px 0px;
   display: inline-flex;
@@ -30,6 +41,9 @@
   .navBarSegment {
     display: none;
   }
+  .mainApp {
+    width: 98%;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -39,5 +53,8 @@
   }
   .navBarSegment {
     display: inline-flex;
+  }
+  .mainApp {
+    width: 92%;
   }
 }

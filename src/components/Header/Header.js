@@ -15,11 +15,12 @@ const NavButton = styled.label`
 `;
 
 const NavBarDropDown = styled.div`
+  background: white;
   flex-direction: column;
   width: 100px;
   display: flex;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 999;
+  position: absolute;
 `;
 
 const NavBarSelectOption = styled.p`
@@ -39,6 +40,9 @@ const Link = styled.a`
 
 const Header = () => {
   let parent = null;
+  let header = null;
+  const [headerVisible, setHeaderVisible] = useState(true);
+
   let options = [
     { id: "1", name: "Designers", to: "" },
     { id: "2", name: "Bridal Boutique", to: "" },
@@ -50,6 +54,22 @@ const Header = () => {
     options: options,
     left: "0px"
   });
+
+  const isHeaderVisible = () => {
+    if (header == null) {
+      return false;
+    }
+
+    if (header.getBoundingClientRect().y > -100 != headerVisible) {
+      setHeaderVisible(header.getBoundingClientRect().y > -100);
+    }
+  };
+  // Track header visibility
+  useEffect(() => {
+    window.addEventListener("scroll", isHeaderVisible, { passive: true });
+
+    return () => window.removeEventListener("scroll", isHeaderVisible);
+  }, [headerVisible]);
 
   const ShowDropDown = () => {
     let parentInfo = parent.getBoundingClientRect();
@@ -78,56 +98,74 @@ const Header = () => {
     setDropDownStatus({ ...dropDownStatus, isOpen: false });
   };
   return (
-    <div style={{ height: "150px" }}>
-      <div className="navBar">
-        <div className="navBarSegment">
-          <NavButton>360 Planner</NavButton>
-          <NavButton
+    <div className="allScreenHeader">
+      {!headerVisible ? (
+        <div
+          style={{
+            transition: "all ease 1s",
+            backgroundColor: "red",
+            width: "100%",
+            position: "fixed",
+            top: "0",
+            zIndex: "1",
+            height: "60px"
+          }}
+        >
+          Moving header
+        </div>
+      ) : null}
+      <div className="mainAppHeader">
+        <div style={{ height: "150px" }}>
+          <div className="navBar" ref={el => (header = el)}>
+            <div className="navBarSegment">
+              {/* <NavButton>360 Planner</NavButton> */}
+              <NavButton
+                onMouseEnter={ShowDropDown}
+                onMouseLeave={HideDropDown}
+                ref={el => (parent = el)}
+              >
+                Her
+              </NavButton>
+
+              <NavButton>Him</NavButton>
+              <NavButton>The Wedding</NavButton>
+            </div>
+            <img className="navBarLogo" src={logo} alt="Weds 360 Logo"></img>
+            <div className="navBarSegment">
+              <NavButton>Vendors</NavButton>
+              <NavButton>Gallery</NavButton>
+              <NavButton>Ideas & more</NavButton>
+            </div>
+          </div>
+          <NavBarDropDown
             onMouseEnter={ShowDropDown}
             onMouseLeave={HideDropDown}
-            ref={el => (parent = el)}
+            style={{
+              left: dropDownStatus.left,
+              display: dropDownStatus.isOpen ? "flex" : "none"
+            }}
           >
-            Her
-          </NavButton>
-
-          <NavButton>Him</NavButton>
-          <NavButton>The Wedding</NavButton>
-        </div>
-        <img className="navBarLogo" src={logo} alt="Weds 360 Logo"></img>
-        <div className="navBarSegment">
-          <NavButton>Vendors</NavButton>
-          <NavButton>Gallery</NavButton>
-          <NavButton>Ideas & more</NavButton>
+            {dropDownStatus.options.map((option, i) => {
+              let styles = {};
+              if (i == dropDownStatus.options.length - 1) {
+                styles.borderBottom = "none";
+              }
+              return (
+                <NavBarSelectOption style={styles} key={option.id}>
+                  <Link
+                    href={option.to}
+                    title={option.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {option.name}
+                  </Link>
+                </NavBarSelectOption>
+              );
+            })}
+          </NavBarDropDown>
         </div>
       </div>
-      <NavBarDropDown
-        onMouseEnter={ShowDropDown}
-        onMouseLeave={HideDropDown}
-        style={{
-          left: dropDownStatus.left,
-          position: "absolute",
-          display: dropDownStatus.isOpen ? "flex" : "none"
-        }}
-      >
-        {dropDownStatus.options.map((option, i) => {
-          let styles = {};
-          if (i == dropDownStatus.options.length - 1) {
-            styles.borderBottom = "none";
-          }
-          return (
-            <NavBarSelectOption style={styles} key={option.id}>
-              <Link
-                href={option.to}
-                title={option.name}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {option.name}
-              </Link>
-            </NavBarSelectOption>
-          );
-        })}
-      </NavBarDropDown>
     </div>
   );
 };

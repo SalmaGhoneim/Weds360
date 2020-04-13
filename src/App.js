@@ -13,9 +13,9 @@ function App() {
     <BrowserRouter>
       <div className="app">
         <div className="siteContent">
+          <Header />
           <div className="allScreen">
             <div className="mainApp">
-              <Header />
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/categories" exact component={Categories} />
