@@ -1,0 +1,14 @@
+.singlePhotoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.marginTop {
+  margin-top: 20px;
+}
+.title {
+  font-size: 35px;
+  font-weight: 900;
+  text-align: start;
+}

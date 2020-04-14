@@ -24,13 +24,13 @@
   max-width: 500px;
   display: flex;
 }
-.imageContainer {
+.serviceImageContainer {
   display: block;
   min-width: 90px;
   margin-top: auto;
   margin-bottom: auto;
 }
-.image {
+.serviceImage {
   width: 80px;
   height: auto;
 }

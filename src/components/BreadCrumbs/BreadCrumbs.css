@@ -17,19 +17,34 @@
 .treeNavLink {
   color: #008174;
   text-transform: uppercase;
-  font-size: 18px;
   text-decoration: none;
-  font-weight: 600;
 }
 
 .treeLabel {
-  font-size: 18px;
   margin: 0px;
-  font-weight: 600;
   text-transform: uppercase;
 }
 
 .treeArrow {
   height: 100%;
   width: auto;
+}
+.font {
+  font-weight: 600;
+}
+@media only screen and (min-width: 320px) {
+  /* For mobiles */
+  .font {
+    font-size: 15px;
+  }
+}
+@media only screen and (min-width: 450px) {
+  /* For tablet: */
+  .font {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 790px) {
+  /* For desktop : */
 }

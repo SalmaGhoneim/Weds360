@@ -116,7 +116,7 @@ const Header = () => {
             className={headerVisible ? "navBarLogo" : "navBarLogoFixed"}
             src={logo}
             alt="Weds360 Logo"
-          ></img>
+          />
 
           <div
             className={headerVisible ? "navBarSegment" : "navBarSegmentFixed"}

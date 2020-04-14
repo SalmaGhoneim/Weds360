@@ -35,8 +35,8 @@ const Services = () => {
         .map((x, i) => {
           return (
             <div className="serviceCard" key={i}>
-              <div className="imageContainer">
-                <img className="image" src={arr[i]} />
+              <div className="serviceImageContainer">
+                <img className="serviceImage" src={arr[i]} />
               </div>
               <div className="textContainer">
                 <p className="serviceTitle">{services[0].title}</p>

@@ -113,7 +113,7 @@
     display: none;
   }
   .mainAppHeader {
-    height: 120px;
+    height: 100px;
   }
   .adjustWidth {
     font-size: 10px;
@@ -160,5 +160,8 @@
   }
   .navBarSegment {
     display: inline-flex;
+  }
+  .mainAppHeader {
+    height: 120px;
   }
 }

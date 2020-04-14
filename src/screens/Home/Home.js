@@ -19,7 +19,8 @@ const Home = () => {
         width: "100%",
         display: "flex",
         justifyContent: "flex-start",
-        flexDirection: "column"
+        flexDirection: "column",
+        marginTop: "20px"
       }}
     >
       <BreadCrumbs tree={tree} />

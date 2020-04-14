@@ -2,9 +2,9 @@ import React from "react";
 import "./App.css";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import Home from "./screens/Home/Home";
-import Categories from "./screens/Categories";
+import Categories from "./screens/Categories/Categories";
 import SingleCategory from "./screens/SingleCategory";
-import SinglePhoto from "./screens/SinglePhoto";
+import SinglePhoto from "./screens/SinglePhoto/SinglePhoto";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 

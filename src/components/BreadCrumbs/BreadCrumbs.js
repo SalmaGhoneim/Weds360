@@ -38,7 +38,7 @@ const BreadCrumbs = props => {
 
   return (
     <div className="allWidth">
-      <div className="main">{finalJSX}</div>
+      <div className="main font">{finalJSX}</div>
     </div>
   );
 };
