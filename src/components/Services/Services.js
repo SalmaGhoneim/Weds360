@@ -6,6 +6,7 @@ import image4 from "../../assets/services/guestlist.png";
 import image5 from "../../assets/services/vendors.png";
 import image6 from "../../assets/services/registry.png";
 import { NavLink } from "react-router-dom";
+import "./Services.css";
 
 let services = [
   {
@@ -23,75 +24,24 @@ let services = [
 let arr = [image1, image2, image3, image4, image5, image6];
 
 const Services = () => {
-  let styles = {
-    flex: "3",
-    height: "250px",
-    margin: "10px",
-    minWidth: "290px",
-    maxWidth: "500px",
-    display: "flex"
-  };
-  let text = {};
   return (
-    <div
-      style={{
-        width: "100%",
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space_between"
-      }}
-    >
+    <div className="servicesContainer">
+      <p className="statement">
+        WEDDING PLANNING IS A PIECE OF CAKE WITH WEDS360. WE KNOW WHAT MATTERS
+        MOST AND YOU CAN COUNT ON US EVERY STEP OF THE WAY.
+      </p>
       {Array(6)
         .fill()
         .map((x, i) => {
           return (
-            <div style={styles} key={i}>
-              <div
-                style={{
-                  display: "block",
-                  minWidth: "90px",
-                  marginTop: "auto",
-                  marginBottom: "auto"
-                }}
-              >
-                <img style={{ width: "80px", height: "auto" }} src={arr[i]} />
+            <div className="serviceCard" key={i}>
+              <div className="imageContainer">
+                <img className="image" src={arr[i]} />
               </div>
-              <div
-                style={{
-                  margin: "auto",
-                  marginLeft: "10px",
-                  textAlign: "start"
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: "600",
-                    color: "rgb(51,51,51)",
-                    fontWeight: "600"
-                  }}
-                >
-                  {services[0].title}
-                </p>
-                <p
-                  style={{
-                    fontSize: "12px",
-                    color: "rgb(51,51,51)",
-                    lineHeight: "2",
-                    marginBottom: "0px"
-                  }}
-                >
-                  {services[0].text}
-                </p>
-                <NavLink
-                  to="/categories"
-                  style={{
-                    fontSize: "12px",
-                    color: "#008174",
-                    lineHeight: "2",
-                    textDecoration: "none"
-                  }}
-                >
+              <div className="textContainer">
+                <p className="serviceTitle">{services[0].title}</p>
+                <p className="basicParagraph">{services[0].text}</p>
+                <NavLink className="basicLink" to="/categories">
                   Create your website
                 </NavLink>
               </div>

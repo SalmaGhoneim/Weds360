@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./Header.css";
 import logo from "../../assets/weds360Logo.png";
+import burgerIcon from "../../assets/icons/burgerIcon.png";
 
 const NavButton = styled.label`
-  font-size: 14px;
   font-family: Lato;
   font-weight: 550;
   height: 100%;
@@ -40,36 +40,27 @@ const Link = styled.a`
 
 const Header = () => {
   let parent = null;
-  let header = null;
   const [headerVisible, setHeaderVisible] = useState(true);
 
-  let options = [
-    { id: "1", name: "Designers", to: "" },
-    { id: "2", name: "Bridal Boutique", to: "" },
-    { id: "3", name: "Wedding Dresses", to: "" }
-  ];
   const [dropDownStatus, setDropDownStatus] = useState({
     isOpen: false,
     parent: parent,
-    options: options,
-    left: "0px"
+    options: [],
+    left: "0px",
+    top: "0px"
   });
 
   const isHeaderVisible = () => {
-    if (header == null) {
-      return false;
+    if (headerVisible != window.pageYOffset < 60) {
+      setHeaderVisible(window.pageYOffset < 60);
     }
-
-    if (header.getBoundingClientRect().y > -100 != headerVisible) {
-      setHeaderVisible(header.getBoundingClientRect().y > -100);
-    }
+    return window.pageYOffset < 60;
   };
   // Track header visibility
   useEffect(() => {
     window.addEventListener("scroll", isHeaderVisible, { passive: true });
-
     return () => window.removeEventListener("scroll", isHeaderVisible);
-  }, [headerVisible]);
+  });
 
   const ShowDropDown = () => {
     let parentInfo = parent.getBoundingClientRect();
@@ -91,80 +82,82 @@ const Header = () => {
       ...dropDownStatus,
       isOpen: true,
       options: options,
-      left: centerX - 50
+      left: centerX - 50,
+      top: parentInfo.bottom + 1
     });
   };
   const HideDropDown = () => {
     setDropDownStatus({ ...dropDownStatus, isOpen: false });
   };
+
   return (
     <div className="allScreenHeader">
-      {!headerVisible ? (
-        <div
+      <div className={headerVisible ? "mainAppHeader" : "mainAppHeaderFixed"}>
+        <div className={headerVisible ? "navBar" : "navBarFixed"}>
+          <div
+            className={headerVisible ? "navBarSegment" : "navBarSegmentFixed"}
+            style={{ order: headerVisible ? "1" : "2" }}
+          >
+            <NavButton className="adjustWidth">360 Planner</NavButton>
+            <NavButton
+              className="adjustWidth"
+              onMouseEnter={ShowDropDown}
+              onMouseLeave={HideDropDown}
+              ref={el => (parent = el)}
+            >
+              Her
+            </NavButton>
+
+            <NavButton className="adjustWidth">Him</NavButton>
+            <NavButton className="adjustWidth">The Wedding</NavButton>
+          </div>
+
+          <img
+            className={headerVisible ? "navBarLogo" : "navBarLogoFixed"}
+            src={logo}
+            alt="Weds360 Logo"
+          ></img>
+
+          <div
+            className={headerVisible ? "navBarSegment" : "navBarSegmentFixed"}
+            style={{ order: headerVisible ? "3" : "3" }}
+          >
+            <NavButton className="adjustWidth">Vendors</NavButton>
+            <NavButton className="adjustWidth">Gallery</NavButton>
+            <NavButton className="adjustWidth">Ideas & more</NavButton>
+          </div>
+          <div className="burgerIconContainer">
+            <img className="burgerIcon" src={burgerIcon}></img>
+          </div>
+        </div>
+        <NavBarDropDown
+          onMouseEnter={ShowDropDown}
+          onMouseLeave={HideDropDown}
           style={{
-            transition: "all ease 1s",
-            backgroundColor: "red",
-            width: "100%",
-            position: "fixed",
-            top: "0",
-            zIndex: "1",
-            height: "60px"
+            left: dropDownStatus.left,
+            top: dropDownStatus.top,
+            display: dropDownStatus.isOpen ? "flex" : "none"
           }}
         >
-          Moving header
-        </div>
-      ) : null}
-      <div className="mainAppHeader">
-        <div style={{ height: "150px" }}>
-          <div className="navBar" ref={el => (header = el)}>
-            <div className="navBarSegment">
-              {/* <NavButton>360 Planner</NavButton> */}
-              <NavButton
-                onMouseEnter={ShowDropDown}
-                onMouseLeave={HideDropDown}
-                ref={el => (parent = el)}
-              >
-                Her
-              </NavButton>
-
-              <NavButton>Him</NavButton>
-              <NavButton>The Wedding</NavButton>
-            </div>
-            <img className="navBarLogo" src={logo} alt="Weds 360 Logo"></img>
-            <div className="navBarSegment">
-              <NavButton>Vendors</NavButton>
-              <NavButton>Gallery</NavButton>
-              <NavButton>Ideas & more</NavButton>
-            </div>
-          </div>
-          <NavBarDropDown
-            onMouseEnter={ShowDropDown}
-            onMouseLeave={HideDropDown}
-            style={{
-              left: dropDownStatus.left,
-              display: dropDownStatus.isOpen ? "flex" : "none"
-            }}
-          >
-            {dropDownStatus.options.map((option, i) => {
-              let styles = {};
-              if (i == dropDownStatus.options.length - 1) {
-                styles.borderBottom = "none";
-              }
-              return (
-                <NavBarSelectOption style={styles} key={option.id}>
-                  <Link
-                    href={option.to}
-                    title={option.name}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {option.name}
-                  </Link>
-                </NavBarSelectOption>
-              );
-            })}
-          </NavBarDropDown>
-        </div>
+          {dropDownStatus.options.map((option, i) => {
+            let styles = {};
+            if (i == dropDownStatus.options.length - 1) {
+              styles.borderBottom = "none";
+            }
+            return (
+              <NavBarSelectOption style={styles} key={option.id}>
+                <Link
+                  href={option.to}
+                  title={option.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {option.name}
+                </Link>
+              </NavBarSelectOption>
+            );
+          })}
+        </NavBarDropDown>
       </div>
     </div>
   );

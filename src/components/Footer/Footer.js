@@ -2,7 +2,6 @@ import React from "react";
 import facebook from "../../assets/icons/facebook.svg";
 import instagram from "../../assets/icons/instagram.png";
 import copyright from "../../assets/icons/copyright.svg";
-
 import "./Footer.css";
 const Footer = () => {
   return (
@@ -21,15 +20,15 @@ const Footer = () => {
         </div>
         <div className="bottom oneLine lightWeight">
           <img className="copyright" src={copyright} />
-          <p>copyright </p>
+          <p className="noMargin">copyright </p>
           <a target="_blank" href="https://plus360.xyz/">
-            <p className="plus360"> Plus360 </p>
+            <p className="plus360 noMargin"> Plus360 </p>
           </a>
-          <p>all rights reserved</p>
+          <p className="noMargin">all rights reserved</p>
         </div>
-        <div className="bottom  textAlign">
+        <div className="bottom  textAlign ">
           <p> Terms & Conditions</p>
-          <p> Privacy Policy</p>
+          <p className="noMarginBottom"> Privacy Policy</p>
         </div>
       </div>
     </div>
