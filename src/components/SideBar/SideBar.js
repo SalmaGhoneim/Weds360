@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { typeSearchWord } from "../../actions";
 
 const SideBarButton = styled.button`
   background: transparent;
@@ -22,12 +24,16 @@ const SideBarSearchBar = styled.input`
 `;
 
 const SideBar = () => {
-  const [searchWord, setSearchWord] = useState("");
+  const searchWord = useSelector(state => state.search);
+  const dispatch = useDispatch();
+
   const search = () => {};
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
-      <SideBarButton onClick={() => setSearchWord("")}>Clear</SideBarButton>
+      <SideBarButton onClick={() => dispatch(typeSearchWord(""))}>
+        Clear
+      </SideBarButton>
       <SideBarButton
         onClick={search}
         style={{ background: "black", color: "white" }}
@@ -37,7 +43,7 @@ const SideBar = () => {
       <SideBarSearchBar
         type="text"
         value={searchWord}
-        onChange={e => setSearchWord(e.value)}
+        onChange={e => dispatch(typeSearchWord(e.target.value))}
         placeholder="Search"
       />
     </div>

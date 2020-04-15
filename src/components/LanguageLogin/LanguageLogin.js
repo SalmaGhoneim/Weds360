@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import login from "../../assets/icons/login.svg";
+import personAdd from "../../assets/icons/login.svg";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleLanguage } from "../../actions";
+import { login } from "../../actions";
+
 const LanguageLoginContainer = styled.div`
   display: flex;
   height: 25px;
@@ -29,22 +33,18 @@ const LanguageButton = styled.button`
 `;
 
 const LanguageLogin = () => {
-  const [currLanguage, setCurrLanguage] = useState("en");
+  const currLanguage = useSelector(state => state.currLanguage);
 
-  const toggleLanguage = () => {
-    if (currLanguage == "en") {
-      setCurrLanguage("ar");
-    } else {
-      setCurrLanguage("en");
-    }
-  };
+  const dispatch = useDispatch();
 
   let otherLanguage = currLanguage == "ar" ? "English" : "العربية";
 
   return (
     <LanguageLoginContainer>
-      <LoginIcon alt="" src={login} />
-      <LanguageButton onClick={toggleLanguage}>{otherLanguage}</LanguageButton>
+      <LoginIcon alt="" src={personAdd} onClick={() => dispatch(login())} />
+      <LanguageButton onClick={() => dispatch(toggleLanguage())}>
+        {otherLanguage}
+      </LanguageButton>
     </LanguageLoginContainer>
   );
 };
