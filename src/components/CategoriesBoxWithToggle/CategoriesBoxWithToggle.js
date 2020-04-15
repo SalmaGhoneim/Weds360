@@ -1,36 +1,31 @@
 import React, { useEffect, useState } from "react";
 import "./CategoriesBoxWithToggle.css";
 import arrowRight from "../../assets/icons/arrowRight.png";
-import category1 from "../../assets/categories/weddingDresses.png";
-import category2 from "../../assets/categories/videographers.png";
-import category3 from "../../assets/categories/rings.png";
-
 const CategoriesBoxWithToggle = props => {
   const [categoriesInfo, setCategoriesInfo] = useState({
     startIndex: 0,
     catPerRow: 10
   });
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  const categories = [
-    { image: category1, name: "Wedding Dresses", to: "/category" },
-    { image: category2, name: "Videographers", to: "/category" },
-    { image: category3, name: "Rings", to: "/category" },
-    { image: category1, name: "Wedding Dresses", to: "/category" },
-    { image: category2, name: "Videographers", to: "/category" },
-    { image: category3, name: "Rings", to: "/category" },
-    { image: category1, name: "Wedding Dresses", to: "/category" },
-    { image: category2, name: "Videographers", to: "/category" },
-    { image: category3, name: "Rings", to: "/category" },
-    { image: category1, name: "Wedding Dresses", to: "/category" },
-    { image: category2, name: "Videographers", to: "/category" },
-    { image: category3, name: "Rings", to: "/category" }
-  ];
+  useEffect(() => {
+    setLoading(true);
+    let url = "http://localhost:3001/categories";
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        setData(data);
+        setLoading(false);
+      });
+  }, []);
+
   const arrowClick = direction => {
     let newStartIndex = categoriesInfo.startIndex + direction;
 
     if (
       (newStartIndex < 0) |
-      (newStartIndex + categoriesInfo.catPerRow > categories.length)
+      (newStartIndex + categoriesInfo.catPerRow > data.length)
     ) {
       return;
     }
@@ -55,37 +50,43 @@ const CategoriesBoxWithToggle = props => {
     return 2;
   };
   return (
-    <div className={props.categoriesOpen ? "categories" : "hidden"}>
-      <img
-        onClick={() => arrowClick(-1)}
-        className={
-          categoriesInfo.startIndex > 0
-            ? "arrow rotate180"
-            : "arrow rotate180 disabled"
-        }
-        src={arrowRight}
-      />
-      {categories
-        .slice(
-          categoriesInfo.startIndex,
-          categoriesInfo.startIndex + categoriesInfo.catPerRow
-        )
-        .map((category, i) => (
-          <div key={i} className="categoryContainer">
-            <img src={category.image} className="categoryImage" />
-            <p className="categoryTitle">{category.name}</p>
-          </div>
-        ))}
-      <img
-        onClick={() => arrowClick(1)}
-        className={
-          categoriesInfo.startIndex + categoriesInfo.catPerRow <
-          categories.length
-            ? "arrow"
-            : "arrow disabled"
-        }
-        src={arrowRight}
-      />
+    <div>
+      {loading ? null : (
+        <div className={props.categoriesOpen ? "categories" : "hidden"}>
+          <img
+            alt=""
+            onClick={() => arrowClick(-1)}
+            className={
+              categoriesInfo.startIndex > 0
+                ? "arrow rotate180"
+                : "arrow rotate180 disabled"
+            }
+            src={arrowRight}
+          />
+          {data
+            .slice(
+              categoriesInfo.startIndex,
+              categoriesInfo.startIndex + categoriesInfo.catPerRow
+            )
+            .map((category, i) => (
+              <div key={i} className="categoryContainer">
+                <img src={category.image} className="categoryImage" alt="" />
+
+                <p className="categoryTitle">{category.name}</p>
+              </div>
+            ))}
+          <img
+            alt=""
+            onClick={() => arrowClick(1)}
+            className={
+              categoriesInfo.startIndex + categoriesInfo.catPerRow < data.length
+                ? "arrow"
+                : "arrow disabled"
+            }
+            src={arrowRight}
+          />
+        </div>
+      )}
     </div>
   );
 };

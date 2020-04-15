@@ -1,0 +1,10 @@
+{
+  "home": [
+    {
+      "tree": [
+        { "id": "1", "name": "Gallery", "to": "/categories" },
+        { "id": "2", "name": "Wedding Ideas" }
+      ]
+    }
+  ]
+}

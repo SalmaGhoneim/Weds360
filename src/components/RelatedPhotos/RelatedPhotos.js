@@ -1,29 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./RelatedPhotos.css";
-import image from "../../assets/salma_ghoneim_portrait.jpg";
-import image2 from "../../assets/yoda.jpeg";
 import { NavLink } from "react-router-dom";
 
-const RelatedPhotos = () => {
-  const [data, setData] = useState([
-    image,
-    image2,
-    image,
-    image2,
-    image,
-    image2,
-    image,
-    image2,
-    image
-  ]);
+const RelatedPhotos = props => {
   return (
     <div className="allPhotosContainer">
-      {data.map((photo, i) => (
-        <NavLink key={i} to="/" className="card">
+      {props.data.map((photo, i) => (
+        <NavLink key={i} to={photo.to} className="card">
           <div className="imageContainer">
-            <img className="image" src={photo} />
+            <img alt="" className="image" src={photo.image} />
           </div>
-          <p className="imageTitle">Seashells-themed guestbook</p>
+          <p className="imageTitle">{photo.title}</p>
         </NavLink>
       ))}
     </div>

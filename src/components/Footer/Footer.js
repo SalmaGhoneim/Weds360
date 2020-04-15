@@ -10,18 +10,30 @@ const Footer = () => {
         <div>
           <h3 className="largeText">Weds360</h3>
           <div className="imageAlign">
-            <a target="_blank" href="https://www.facebook.com/Weds360/">
-              <img className="socialMedia" src={facebook} />
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.facebook.com/Weds360/"
+            >
+              <img alt="" className="socialMedia" src={facebook} />
             </a>
-            <a target="_blank" href="https://www.instagram.com/weds360/">
-              <img className="socialMedia" src={instagram} />
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.instagram.com/weds360/"
+            >
+              <img alt="" className="socialMedia" src={instagram} />
             </a>
           </div>
         </div>
         <div className="noMargin oneLine lightWeight">
-          <img className="copyright" src={copyright} />
+          <img alt="" className="copyright" src={copyright} />
           <p className="noMargin">copyright </p>
-          <a target="_blank" href="https://plus360.xyz/">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://plus360.xyz/"
+          >
             <p className="plus360 noMargin"> Plus360 </p>
           </a>
           <p className="noMargin">all rights reserved</p>

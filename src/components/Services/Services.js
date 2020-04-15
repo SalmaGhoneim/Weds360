@@ -1,53 +1,45 @@
-import React from "react";
-import image1 from "../../assets/services/wedWebsite.png";
-import image2 from "../../assets/services/budgeter.png";
-import image3 from "../../assets/services/checklist.png";
-import image4 from "../../assets/services/guestlist.png";
-import image5 from "../../assets/services/vendors.png";
-import image6 from "../../assets/services/registry.png";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Services.css";
 
-let services = [
-  {
-    image: image1,
-    text:
-      "Where you will save all your wedding memories forever," +
-      " where you will choose your own personalized template, manage every event detail and let your guests share" +
-      " their pictures, videos and moments with you.",
-    title: "WEDDING WEBSITE",
-    linkText: "Create you website",
-    linkTo: "/categories"
-  }
-];
-
-let arr = [image1, image2, image3, image4, image5, image6];
-
 const Services = () => {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    let url = "http://localhost:3001/services";
+    fetch(url)
+      .then(resp => resp.json())
+      .then(data => {
+        setData(data);
+        setLoading(false);
+      });
+  }, []);
+
   return (
-    <div className="servicesContainer">
-      <p className="statement">
-        WEDDING PLANNING IS A PIECE OF CAKE WITH WEDS360. WE KNOW WHAT MATTERS
-        MOST AND YOU CAN COUNT ON US EVERY STEP OF THE WAY.
-      </p>
-      {Array(6)
-        .fill()
-        .map((x, i) => {
-          return (
-            <div className="serviceCard" key={i}>
-              <div className="serviceImageContainer">
-                <img className="serviceImage" src={arr[i]} />
+    <div>
+      {loading ? null : (
+        <div className="servicesContainer">
+          <p className="statement">{data.statement}</p>
+          {data.services.map((service, i) => {
+            return (
+              <div className="serviceCard" key={i}>
+                <div className="serviceImageContainer">
+                  <img alt="" className="serviceImage" src={service.image} />
+                </div>
+                <div className="textContainer">
+                  <p className="serviceTitle">{service.title}</p>
+                  <p className="basicParagraph">{service.text}</p>
+                  <NavLink className="basicLink" to={service.linkTo}>
+                    {service.linkText}
+                  </NavLink>
+                </div>
               </div>
-              <div className="textContainer">
-                <p className="serviceTitle">{services[0].title}</p>
-                <p className="basicParagraph">{services[0].text}</p>
-                <NavLink className="basicLink" to="/categories">
-                  Create your website
-                </NavLink>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

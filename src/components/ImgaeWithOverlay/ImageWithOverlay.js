@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./ImageWithOverlay.css";
-import weddingIdeas from "../../assets/weddingIdeas.jpg";
 import home from "../../assets/icons/home.png";
 
 const ImageWithOverlay = props => {
@@ -30,8 +29,9 @@ const ImageWithOverlay = props => {
   return (
     <div className="weddingIdeasContainer">
       <img
+        alt=""
         className="weddingIdeas"
-        src={weddingIdeas}
+        src={props.image}
         ref={el => (currImage = el)}
         onMouseEnter={showOverlay}
         onMouseLeave={hideOverlay}
@@ -43,7 +43,7 @@ const ImageWithOverlay = props => {
           style={overlayposition}
         >
           <img src={home} alt="" className="homeIcon" />
-          <p className="overlayText"> Wedding Ideas </p>
+          <p className="overlayText"> {props.title} </p>
         </div>
       )}
     </div>

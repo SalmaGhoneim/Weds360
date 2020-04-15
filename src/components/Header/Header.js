@@ -136,7 +136,7 @@ const Header = () => {
             <NavButton className="adjustWidth">Ideas & more</NavButton>
           </div>
           <div className="burgerIconContainer">
-            <img className="burgerIcon" src={burgerIcon}></img>
+            <img alt="" className="burgerIcon" src={burgerIcon}></img>
           </div>
         </div>
         <NavBarDropDown

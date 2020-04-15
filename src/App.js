@@ -3,7 +3,6 @@ import "./App.css";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import Home from "./screens/Home/Home";
 import Categories from "./screens/Categories/Categories";
-import SingleCategory from "./screens/SingleCategory";
 import SinglePhoto from "./screens/SinglePhoto/SinglePhoto";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -19,7 +18,7 @@ function App() {
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/categories" exact component={Categories} />
-                <Route path="/category" component={SingleCategory} />
+                <Route path="/category" component={Home} />
                 <Route path="/photo" component={SinglePhoto} />
               </Switch>
             </div>

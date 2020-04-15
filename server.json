@@ -1,0 +1,269 @@
+{
+  "home": {
+    "tree": [
+      { "id": "1", "name": "Gallery", "to": "/categories" },
+      { "id": "2", "name": "Wedding Ideas" }
+    ],
+    "gallery": {
+      "pageCount": "18",
+      "odd": [
+        {
+          "id": "1",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        },
+        {
+          "id": "2",
+          "image": "/images/homeImage2.jpg",
+          "label": "Wedding Invitations"
+        },
+        {
+          "id": "3",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        },
+        {
+          "id": "4",
+          "image": "/images/homeImage2.jpg",
+          "label": "Wedding Invitations"
+        },
+        {
+          "id": "5",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        },
+        {
+          "id": "6",
+          "image": "/images/homeImage2.jpg",
+          "label": "Wedding Invitations"
+        },
+        {
+          "id": "7",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        },
+        {
+          "id": "8",
+          "image": "/images/homeImage2.jpg",
+          "label": "Wedding Invitations"
+        },
+        {
+          "id": "9",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        }
+      ],
+      "even": [
+        {
+          "id": "2",
+          "image": "/images/homeImage2.jpg",
+          "label": "Wedding Invitations"
+        },
+        {
+          "id": "3",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        },
+        {
+          "id": "4",
+          "image": "/images/homeImage2.jpg",
+          "label": "Wedding Invitations"
+        },
+        {
+          "id": "5",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        },
+        {
+          "id": "6",
+          "image": "/images/homeImage2.jpg",
+          "label": "Wedding Invitations"
+        },
+        {
+          "id": "7",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        },
+        {
+          "id": "8",
+          "image": "/images/homeImage2.jpg",
+          "label": "Wedding Invitations"
+        },
+        {
+          "id": "9",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        },
+        {
+          "id": "1",
+          "image": "/images/homeImage1.jpg",
+          "label": "Wedding Details"
+        }
+      ]
+    }
+  },
+  "services": {
+    "statement": "WEDDING PLANNING IS A PIECE OF CAKE WITH WEDS360. WE KNOW WHAT MATTERS MOST AND YOU CAN COUNT ON US EVERY STEP OF THE WAY.",
+    "services": [
+      {
+        "image": "/images/services/wedWebsite.png",
+        "title": "Wedding Websites",
+        "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
+        "linkText": "Create your website",
+        "linkTo": "/categories"
+      },
+      {
+        "image": "/images/services/budgeter.png",
+        "title": "Budgeter",
+        "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
+        "linkText": "Create and manage your budget",
+        "linkTo": "/categories"
+      },
+      {
+        "image": "/images/services/checklist.png",
+        "title": "Check List",
+        "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
+        "linkText": "Get your check list",
+        "linkTo": "/categories"
+      },
+      {
+        "image": "/images/services/guestlist.png",
+        "title": "Guest List",
+        "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
+        "linkText": "Create your guest list",
+        "linkTo": "/categories"
+      },
+      {
+        "image": "/images/services/vendors.png",
+        "title": "Vendors",
+        "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
+        "linkText": "Start your tour",
+        "linkTo": "/categories"
+      },
+      {
+        "image": "/images/services/registry.png",
+        "title": "Registry List",
+        "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
+        "linkText": "Create your dream list",
+        "linkTo": "/categories"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "image": "/images/categories/weddingDresses.png",
+      "name": "Wedding Dresses",
+      "to": "/category"
+    },
+    {
+      "image": "/images/categories/videographers.png",
+      "name": "Videographers",
+      "to": "/category"
+    },
+    {
+      "image": "images/categories/rings.png",
+      "name": "Rings",
+      "to": "/category"
+    },
+    {
+      "image": "/images/categories/weddingDresses.png",
+      "name": "Wedding Dresses",
+      "to": "/category"
+    },
+    {
+      "image": "/images/categories/videographers.png",
+      "name": "Videographers",
+      "to": "/category"
+    },
+    {
+      "image": "images/categories/rings.png",
+      "name": "Rings",
+      "to": "/category"
+    },
+    {
+      "image": "/images/categories/weddingDresses.png",
+      "name": "Wedding Dresses",
+      "to": "/category"
+    },
+    {
+      "image": "/images/categories/videographers.png",
+      "name": "Videographers",
+      "to": "/category"
+    },
+    {
+      "image": "images/categories/rings.png",
+      "name": "Rings",
+      "to": "/category"
+    },
+    {
+      "image": "/images/categories/weddingDresses.png",
+      "name": "Wedding Dresses",
+      "to": "/category"
+    },
+    {
+      "image": "/images/categories/videographers.png",
+      "name": "Videographers",
+      "to": "/category"
+    },
+    {
+      "image": "images/categories/rings.png",
+      "name": "Rings",
+      "to": "/category"
+    }
+  ],
+  "categoriesPageImage": {
+    "image": "/images/weddingIdeas.jpg",
+    "title": "Wedding Ideas"
+  },
+  "singlePhoto": {
+    "mainPhoto": {
+      "image": "/images/weddingDetails.png",
+      "title": "Wedding Details",
+      "text": "Bits and pieces of the wedding's bigger picture.",
+      "link": "Al Khardawaty",
+      "linkTo": "/"
+    },
+    "relatedPhotos": [
+      {
+        "image": "/images/weddingDetails.png",
+        "title": "Wedding Dresses",
+        "to": "/category"
+      },
+      {
+        "image": "/images/homeImage1.jpg",
+        "title": "Videographers",
+        "to": "/category"
+      },
+      {
+        "image": "images/weddingIdeas.jpg",
+        "title": "Rings",
+        "to": "/category"
+      },
+      {
+        "image": "/images/weddingDetails.png",
+        "title": "Seashells-themed guestbook",
+        "to": "/"
+      },
+      {
+        "image": "/images/homeImage1.jpg",
+        "title": "Beating Hearts",
+        "to": "/category"
+      },
+      {
+        "image": "images/weddingIdeas.jpg",
+        "title": "The love of your life",
+        "to": "/"
+      },
+      {
+        "image": "/images/homeImage2.jpg",
+        "title": "Build Memories",
+        "to": "/category"
+      },
+      {
+        "image": "/images/homeImage1.jpg",
+        "title": "One block at a time",
+        "to": "/"
+      }
+    ]
+  }
+}

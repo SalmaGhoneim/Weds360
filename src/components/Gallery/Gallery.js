@@ -1,22 +1,8 @@
-import React, { useEffect, useState } from "react";
-import image from "../../assets/salma_ghoneim_portrait.jpg";
-import image2 from "../../assets/yoda.jpeg";
-
+import React from "react";
 import ImageContainer from "./ImageContainer";
 import { NavLink } from "react-router-dom";
 
-const Gallery = () => {
-  const [data, setData] = useState([
-    image,
-    image2,
-    image,
-    image2,
-    image,
-    image2,
-    image,
-    image2,
-    image
-  ]);
+const Gallery = props => {
   return (
     <div
       style={{
@@ -26,19 +12,19 @@ const Gallery = () => {
         justifyContent: "space-around"
       }}
     >
-      {data.map((image, i) => (
+      {props.data.map((image, i) => (
         <NavLink
-          key={i}
+          key={image.id}
           to="/photo"
           style={{ display: "contents", textDecoration: "none" }}
         >
           <ImageContainer
-            image={image}
+            image={image.image}
             containerHeight="290px"
             photoHeight="230px"
             photoWidth="100%"
-            alt="salma"
-            label="Wedding details"
+            alt={image.label}
+            label={image.label}
           />
         </NavLink>
       ))}

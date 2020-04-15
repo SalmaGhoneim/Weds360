@@ -1,24 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import weddingDetails from "../../assets/weddingDetails.png";
 import twitterCircle from "../../assets/icons/twitterCircle.png";
 import facebookCircle from "../../assets/icons/facebookCircle.png";
 
 import "./PhotoView.css";
 
-const PhotoView = () => {
+const PhotoView = props => {
   return (
     <div className="photoViewContainer">
-      <img className="bigPhoto" src={weddingDetails} />
+      <img alt="" className="bigPhoto" src={props.data.image} />
       <div className="bigPhotoText">
-        <p className="title">Wedding Details</p>
-        <p>Bits and pieces of the wedding's bigger picture.</p>
-        <NavLink to="/" className="link">
-          Al Khardawaty
+        <p className="title">{props.data.title}</p>
+        <p>{props.data.text}</p>
+        <NavLink to={props.data.linkTo} className="link">
+          {props.data.link}
         </NavLink>
         <div className="socialMediaContainer">
-          <img className="socialMediaCircle" src={facebookCircle} />
-          <img className="socialMediaCircle" src={twitterCircle} />
+          <img alt="" className="socialMediaCircle" src={facebookCircle} />
+          <img alt="" className="socialMediaCircle" src={twitterCircle} />
         </div>
       </div>
     </div>
