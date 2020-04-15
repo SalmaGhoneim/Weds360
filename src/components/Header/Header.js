@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "./Header.css";
 import logo from "../../assets/weds360Logo.png";
 import burgerIcon from "../../assets/icons/burgerIcon.png";
+import LanguageLogin from "../LanguageLogin/LanguageLogin";
 
 const NavButton = styled.label`
   font-family: Lato;
@@ -47,14 +48,15 @@ const Header = () => {
     parent: parent,
     options: [],
     left: "0px",
-    top: "0px"
+    top: "0px",
+    offset: 0
   });
 
   const isHeaderVisible = () => {
-    if (headerVisible != window.pageYOffset < 60) {
-      setHeaderVisible(window.pageYOffset < 60);
+    if (headerVisible != window.pageYOffset < 120) {
+      setHeaderVisible(window.pageYOffset < 120);
     }
-    return window.pageYOffset < 60;
+    return window.pageYOffset < 120;
   };
   // Track header visibility
   useEffect(() => {
@@ -65,6 +67,7 @@ const Header = () => {
   const ShowDropDown = () => {
     let parentInfo = parent.getBoundingClientRect();
     let centerX = parentInfo.left + 0.5 * parentInfo.width;
+    let offset = window.pageYOffset < 120 ? window.pageYOffset : 0;
     let options = [
       { id: "1", name: "Designers", to: "https://medium.com/@salma_ghoneim" },
       {
@@ -83,7 +86,7 @@ const Header = () => {
       isOpen: true,
       options: options,
       left: centerX - 50,
-      top: parentInfo.bottom + 1
+      top: parentInfo.bottom + 1 + offset
     });
   };
   const HideDropDown = () => {
@@ -92,6 +95,7 @@ const Header = () => {
 
   return (
     <div className="allScreenHeader">
+      {headerVisible ? null : <div className="scrollAnchor"></div>}
       <div className={headerVisible ? "mainAppHeader" : "mainAppHeaderFixed"}>
         <div className={headerVisible ? "navBar" : "navBarFixed"}>
           <div
@@ -111,12 +115,17 @@ const Header = () => {
             <NavButton className="adjustWidth">Him</NavButton>
             <NavButton className="adjustWidth">The Wedding</NavButton>
           </div>
-
           <img
             className={headerVisible ? "navBarLogo" : "navBarLogoFixed"}
             src={logo}
             alt="Weds360 Logo"
           />
+
+          <div
+            className={headerVisible ? "languageLogin" : "languageLoginFixed"}
+          >
+            <LanguageLogin />
+          </div>
 
           <div
             className={headerVisible ? "navBarSegment" : "navBarSegmentFixed"}

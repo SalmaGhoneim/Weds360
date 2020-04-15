@@ -3,7 +3,8 @@
   flex-wrap: wrap;
 }
 .bigPhoto {
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 .bigPhotoText {
   text-align: start;

@@ -18,7 +18,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="bottom oneLine lightWeight">
+        <div className="noMargin oneLine lightWeight">
           <img className="copyright" src={copyright} />
           <p className="noMargin">copyright </p>
           <a target="_blank" href="https://plus360.xyz/">
@@ -26,7 +26,7 @@ const Footer = () => {
           </a>
           <p className="noMargin">all rights reserved</p>
         </div>
-        <div className="bottom  textAlign ">
+        <div className=" textAlign ">
           <p> Terms & Conditions</p>
           <p className="noMarginBottom"> Privacy Policy</p>
         </div>
