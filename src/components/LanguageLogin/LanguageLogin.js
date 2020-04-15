@@ -14,7 +14,7 @@ const LoginIcon = styled.img`
   margin-right: 5px;
 `;
 const LanguageButton = styled.button`
-  background: white;
+  background: transparent;
   margin: auto;
   height: 20px;
   width: auto;
