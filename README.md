@@ -2,6 +2,15 @@
 
 WebOps task
 
+## To run:
+Clone the repo.
+cd into the repo folder.
+run json-server --watch server.json --port 3001 and keep open
+run npm start and keep open
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
