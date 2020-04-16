@@ -138,7 +138,7 @@ export default styled(Pagination)`
     cursor: pointer;
     font-size: 14px;
   }
-  &&& .selected {
+  && .selected {
     background-color: rgb(2, 77, 76);
     color: white;
     cursor: default;
