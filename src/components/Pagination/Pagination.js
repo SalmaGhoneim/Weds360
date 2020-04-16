@@ -2,9 +2,11 @@ import React from "react";
 import "./Pagination.css";
 import paginationArrowRight from "../../assets/icons/paginationArrowRight.svg";
 const Pagination = props => {
-  const minOf10 = Math.min(10, props.pageCount);
+  const start = props.currPage >= 8 ? props.currPage - 4 : 1;
+
   return (
     <div className="pagination">
+      {/* Previous button */}
       <div
         onClick={props.decrementPage}
         className={
@@ -16,23 +18,61 @@ const Pagination = props => {
         <img className="arrow rotate180" src={paginationArrowRight} alt="" />
         Previous
       </div>
-      {Array(minOf10)
+
+      {/* the one button stuck first */}
+      {start < 2 ? null : (
+        <div
+          onClick={() => props.goToPage(1)}
+          key="page1"
+          className={
+            props.currPage == 1 ? "pageNumberBox selected" : "pageNumberBox"
+          }
+        >
+          1
+        </div>
+      )}
+
+      {/* the two button stuck first */}
+      {start < 2 ? null : (
+        <div
+          onClick={() => props.goToPage(2)}
+          key="page2"
+          className={
+            props.currPage == 2 ? "pageNumberBox selected" : "pageNumberBox"
+          }
+        >
+          2
+        </div>
+      )}
+
+      {/* ... indicating more pages */}
+      {start < 4 ? null : <div className="pageNumberBox">...</div>}
+
+      {/* 4 radius around currPage */}
+      {Array(9)
         .fill()
-        .map((page, i) => (
-          <div
-            onClick={() => props.goToPage(i + 1)}
-            key={i}
-            className={
-              props.currPage == i + 1
-                ? "pageNumberBox selected"
-                : "pageNumberBox"
-            }
-          >
-            {i + 1}
-          </div>
-        ))}
-      {props.pageCount < 13 ? null : <div className="pageNumberBox">...</div>}
-      {props.pageCount < 12 ? null : (
+        .map((page, i) =>
+          start + i > props.pageCount ? null : (
+            <div
+              onClick={() => props.goToPage(start + i)}
+              key={"page" + i}
+              className={
+                props.currPage == start + i
+                  ? "pageNumberBox selected"
+                  : "pageNumberBox"
+              }
+            >
+              {start + i}
+            </div>
+          )
+        )}
+      {/* ... indicating more pages */}
+      {start + 9 > props.pageCount - 2 ? null : (
+        <div className="pageNumberBox">...</div>
+      )}
+
+      {/* before last page stuck at end */}
+      {start + 9 > props.pageCount ? null : (
         <div
           onClick={() => props.goToPage(props.pageCount - 1)}
           className={
@@ -44,7 +84,9 @@ const Pagination = props => {
           {props.pageCount - 1}
         </div>
       )}
-      {props.pageCount < 11 ? null : (
+      {/* last page stuck at end */}
+
+      {start + 9 > props.pageCount ? null : (
         <div
           onClick={() => props.goToPage(props.pageCount)}
           className={
@@ -56,7 +98,7 @@ const Pagination = props => {
           {props.pageCount}
         </div>
       )}
-
+      {/* next button */}
       <div
         onClick={props.incrementPage}
         className={
