@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
-import Home from "./screens/Home/Home";
-import Categories from "./screens/Categories/Categories";
-import SinglePhoto from "./screens/SinglePhoto/SinglePhoto";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Home from "./screens/Home";
+import Categories from "./screens/Categories";
+import SinglePhoto from "./screens/SinglePhoto";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import personAdd from "../../assets/icons/login.svg";
+import personAdd from "../assets/icons/login.svg";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleLanguage } from "../../actions";
-import { login } from "../../actions";
+import { toggleLanguage } from "../actions";
+import { login } from "../actions";
 
 const LanguageLoginContainer = styled.div`
   display: flex;

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
-import "./Home.css";
-import SideBar from "../../components/SideBar/SideBar";
-import Gallery from "../../components/Gallery/Gallery";
-import Services from "../../components/Services/Services";
-import Pagination from "../../components/Pagination/Pagination";
+import styled from "styled-components";
 
-const Home = () => {
+import BreadCrumbs from "../components/BreadCrumbs";
+import SideBar from "../components/SideBar";
+import Gallery from "../components/Gallery";
+import Services from "../components/Services";
+import Pagination from "../components/Pagination";
+
+const Home = props => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [pageInfo, setPageInfo] = useState({ currPage: 1, pageCount: 0 });
@@ -24,7 +25,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className={props.className}>
       {loading ? null : (
         <div
           style={{
@@ -74,4 +75,57 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default styled(Home)`
+  .pagination {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 40px 0px 10px 0px;
+    flex-wrap: wrap;
+  }
+  .pageNumberBox {
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    color: rgb(2, 77, 76);
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 2px;
+    line-height: 25px;
+    padding: 2px 5px 2px 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .prevNextBox {
+    width: auto;
+    padding: 2px 8px 2px 8px;
+  }
+
+  .statement {
+    font-size: 24px;
+    line-height: 1.25;
+    text-transform: uppercase;
+    margin-top: 60px;
+    font-weight: 900;
+  }
+
+  @media only screen and (min-width: 320px) {
+    /* For tablets: */
+    .sideBar {
+      width: 100%;
+    }
+    .gallery {
+      width: 100%;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+
+    .sideBar {
+      flex: 3;
+    }
+    .gallery {
+      flex: 9;
+    }
+  }
+`;

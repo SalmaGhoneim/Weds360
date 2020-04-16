@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { typeSearchWord } from "../../actions";
+import { typeSearchWord } from "../actions";
 
 const SideBarButton = styled.button`
   background: transparent;
@@ -23,14 +23,14 @@ const SideBarSearchBar = styled.input`
   padding: 5px;
 `;
 
-const SideBar = () => {
+const SideBar = props => {
   const searchWord = useSelector(state => state.search);
   const dispatch = useDispatch();
 
   const search = () => {};
 
   return (
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
+    <div className={props.className}>
       <SideBarButton onClick={() => dispatch(typeSearchWord(""))}>
         Clear
       </SideBarButton>
@@ -50,4 +50,7 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default styled(SideBar)`
+  display: flex;
+  flex-wrap: wrap;
+`;

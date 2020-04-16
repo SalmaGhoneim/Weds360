@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./CategoriesBoxWithToggle.css";
-import arrowRight from "../../assets/icons/arrowRight.png";
+import arrowRight from "../assets/icons/arrowRight.png";
+import styled from "styled-components";
+
 const CategoriesBoxWithToggle = props => {
   const [categoriesInfo, setCategoriesInfo] = useState({
     startIndex: 0,
@@ -19,6 +20,11 @@ const CategoriesBoxWithToggle = props => {
         setLoading(false);
       });
   }, []);
+  useEffect(() => {
+    updateCatPerRow();
+    window.addEventListener("resize", updateCatPerRow, { passive: true });
+    return () => window.removeEventListener("resize", updateCatPerRow);
+  }, []);
 
   const arrowClick = direction => {
     let newStartIndex = categoriesInfo.startIndex + direction;
@@ -31,11 +37,6 @@ const CategoriesBoxWithToggle = props => {
     }
     setCategoriesInfo({ ...categoriesInfo, startIndex: newStartIndex });
   };
-  useEffect(() => {
-    updateCatPerRow();
-    window.addEventListener("resize", updateCatPerRow, { passive: true });
-    return () => window.removeEventListener("resize", updateCatPerRow);
-  }, []);
 
   const updateCatPerRow = () => {
     if (window.matchMedia("(min-width: 1440px)").matches) {
@@ -51,7 +52,7 @@ const CategoriesBoxWithToggle = props => {
     return 2;
   };
   return (
-    <div>
+    <div className={props.className}>
       {loading ? null : (
         <div className={props.categoriesOpen ? "categories" : "hidden"}>
           <img
@@ -92,4 +93,41 @@ const CategoriesBoxWithToggle = props => {
   );
 };
 
-export default CategoriesBoxWithToggle;
+export default styled(CategoriesBoxWithToggle)`
+  .categories {
+    background-color: black;
+    height: 140px;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    transition: all ease 0.3s;
+  }
+  .hidden {
+    opacity: 0;
+    position: absolute;
+  }
+  .arrow {
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .disabled {
+    cursor: not-allowed;
+  }
+  .rotate18 {
+    transform: rotate(180);
+  }
+  .categoryContainer {
+    display: block;
+    flex: 2;
+  }
+  .categoryImage {
+    width: 30px;
+    height: 30px;
+  }
+  .categoryTitle {
+    color: white;
+    font-size: 12px;
+  }
+`;

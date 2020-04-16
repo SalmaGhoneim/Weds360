@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import arrowRight from "../../assets/icons/arrowRight.svg";
-import "./BreadCrumbs.css";
-
+import arrowRight from "../assets/icons/arrowRight.svg";
+import styled from "styled-components";
 const BreadCrumbs = props => {
   const [finalJSX, setFinalJSX] = useState([]);
 
@@ -38,10 +37,52 @@ const BreadCrumbs = props => {
   }, [props]);
 
   return (
-    <div className="allWidth">
+    <div className={props.className}>
       <div className="main font">{finalJSX}</div>
     </div>
   );
 };
 
-export default BreadCrumbs;
+export default styled(BreadCrumbs)`
+  .main {
+    max-width: 1100px;
+    min-width: 300px;
+    width: 92%;
+    text-align: start;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
+  .treeNavLink {
+    color: #008174;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .treeLabel {
+    margin: 0px;
+    text-transform: uppercase;
+  }
+
+  .treeArrow {
+    height: 100%;
+    width: auto;
+  }
+  .font {
+    font-weight: 600;
+  }
+  @media only screen and (min-width: 320px) {
+    /* For mobiles */
+    .font {
+      font-size: 15px;
+    }
+  }
+  @media only screen and (min-width: 450px) {
+    /* For tablet: */
+    .font {
+      font-size: 18px;
+    }
+  }
+`;

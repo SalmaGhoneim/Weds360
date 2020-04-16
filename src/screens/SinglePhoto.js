@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
+import BreadCrumbs from "../components/BreadCrumbs";
 
-import "./SinglePhoto.css";
-import PhotoView from "../../components/PhotoView/PhotoView";
-import RelatedPhotos from "../../components/RelatedPhotos/RelatedPhotos";
-import Services from "../../components/Services/Services";
+import PhotoView from "../components/PhotoView";
+import RelatedPhotos from "../components/RelatedPhotos";
+import Services from "../components/Services";
+import styled from "styled-components";
 
-const SinglePhoto = () => {
+const SinglePhoto = props => {
   let tree = [
     { id: "1", name: "Gallery", to: "/categories" },
     { id: "2", name: "Wedding Ideas", to: "/" },
@@ -26,7 +26,7 @@ const SinglePhoto = () => {
       });
   }, []);
   return (
-    <div>
+    <div className={props.className}>
       {loading ? null : (
         <div className="singlePhotoContainer marginTop">
           <BreadCrumbs tree={tree} />
@@ -46,4 +46,19 @@ const SinglePhoto = () => {
   );
 };
 
-export default SinglePhoto;
+export default styled(SinglePhoto)`
+  .singlePhotoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .marginTop {
+    margin-top: 20px;
+  }
+  .title {
+    font-size: 35px;
+    font-weight: 900;
+    text-align: start;
+  }
+`;
