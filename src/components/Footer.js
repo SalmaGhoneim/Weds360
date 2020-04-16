@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Footer = ({ className }) => {
   return (
-    <div className={className}>
+    <div className={className} data-testid="footer">
       <div className="footerMain">
         <div className="footerBody">
           <div>

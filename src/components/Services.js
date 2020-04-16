@@ -18,7 +18,7 @@ const Services = props => {
   }, []);
 
   return (
-    <div className={props.className}>
+    <div className={props.className} data-testid="services">
       {loading ? null : (
         <div className="servicesContainer">
           <p className="statement">{data.statement}</p>

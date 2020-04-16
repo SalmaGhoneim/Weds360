@@ -5,7 +5,7 @@
       { "id": "2", "name": "Wedding Ideas" }
     ],
     "gallery": {
-      "pageCount": "18",
+      "pageCount": 18,
       "odd": [
         {
           "id": "1",

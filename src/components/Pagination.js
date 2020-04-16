@@ -1,6 +1,7 @@
 import React from "react";
 import paginationArrowRight from "../assets/icons/paginationArrowRight.svg";
 import styled from "styled-components";
+
 const Pagination = props => {
   const start = props.currPage >= 8 ? props.currPage - 4 : 1;
   return (
@@ -25,7 +26,7 @@ const Pagination = props => {
             onClick={() => props.goToPage(1)}
             key="page1"
             className={
-              props.currPage === 1 ? "pageNumberBox selected" : "pageNumberBox"
+              props.currPage === 1 ? "selected pageNumberBox" : "pageNumberBox"
             }
           >
             1
@@ -38,7 +39,7 @@ const Pagination = props => {
             onClick={() => props.goToPage(2)}
             key="page2"
             className={
-              props.currPage === 2 ? "pageNumberBox selected" : "pageNumberBox"
+              props.currPage === 2 ? "selected pageNumberBox " : "pageNumberBox"
             }
           >
             2
@@ -58,7 +59,7 @@ const Pagination = props => {
                 key={"page" + i}
                 className={
                   props.currPage === start + i
-                    ? "pageNumberBox selected"
+                    ? "selected pageNumberBox "
                     : "pageNumberBox"
                 }
               >
@@ -77,7 +78,7 @@ const Pagination = props => {
             onClick={() => props.goToPage(props.pageCount - 1)}
             className={
               props.currPage === props.pageCount - 1
-                ? "pageNumberBox selected"
+                ? "selected pageNumberBox"
                 : "pageNumberBox"
             }
           >
@@ -91,7 +92,7 @@ const Pagination = props => {
             onClick={() => props.goToPage(props.pageCount)}
             className={
               props.currPage === props.pageCount
-                ? "pageNumberBox selected"
+                ? "selected pageNumberBox"
                 : "pageNumberBox"
             }
           >
@@ -122,6 +123,7 @@ export default styled(Pagination)`
     flex-direction: row;
     flex-wrap: wrap;
   }
+
   .pageNumberBox {
     display: flex;
     justify-content: center;
@@ -136,12 +138,13 @@ export default styled(Pagination)`
     cursor: pointer;
     font-size: 14px;
   }
-  .selected {
+  &&& .selected {
     background-color: rgb(2, 77, 76);
     color: white;
     cursor: default;
   }
-  .disabled {
+
+  &&& .disabled {
     cursor: not-allowed;
   }
   .arrow {
@@ -151,7 +154,7 @@ export default styled(Pagination)`
     transform: rotate(180deg);
   }
 
-  .prevNextBox {
+  &&& .prevNextBox {
     width: auto;
     padding: 2px 8px 2px 8px;
   }

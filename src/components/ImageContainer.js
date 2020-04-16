@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ImageContainer = props => {
   return (
-    <div className={props.className}>
+    <div className={props.className} data-testid="imageContainer">
       <div className="imageShell">
         <img src={props.image} alt={props.alt} className="individualImage" />
       </div>

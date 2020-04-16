@@ -57,10 +57,16 @@ const Home = props => {
               pageCount={parseInt(pageInfo.pageCount)}
               currPage={pageInfo.currPage}
               incrementPage={() =>
-                setPageInfo({ ...pageInfo, currPage: pageInfo.currPage + 1 })
+                setPageInfo({
+                  ...pageInfo,
+                  currPage: Math.min(pageInfo.currPage + 1, pageInfo.pageCount)
+                })
               }
               decrementPage={() =>
-                setPageInfo({ ...pageInfo, currPage: pageInfo.currPage - 1 })
+                setPageInfo({
+                  ...pageInfo,
+                  currPage: Math.max(pageInfo.currPage - 1, 1)
+                })
               }
               goToPage={page =>
                 setPageInfo({ ...pageInfo, currPage: parseInt(page) })
