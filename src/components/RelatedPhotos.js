@@ -7,7 +7,7 @@ const RelatedPhotos = props => {
     <div className={props.className}>
       <div className="allPhotosContainer">
         {props.data.map((photo, i) => (
-          <NavLink key={i} to={photo.to} className="card">
+          <NavLink key={photo.id} to={photo.to} className="card">
             <div className="imageContainer">
               <img alt="" className="image" src={photo.image} />
             </div>

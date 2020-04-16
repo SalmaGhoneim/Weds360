@@ -106,6 +106,7 @@
     "statement": "WEDDING PLANNING IS A PIECE OF CAKE WITH WEDS360. WE KNOW WHAT MATTERS MOST AND YOU CAN COUNT ON US EVERY STEP OF THE WAY.",
     "services": [
       {
+        "id": "1",
         "image": "/images/services/wedWebsite.png",
         "title": "Wedding Websites",
         "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
@@ -113,6 +114,7 @@
         "linkTo": "/categories"
       },
       {
+        "id": "2",
         "image": "/images/services/budgeter.png",
         "title": "Budgeter",
         "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
@@ -120,6 +122,7 @@
         "linkTo": "/categories"
       },
       {
+        "id": "3",
         "image": "/images/services/checklist.png",
         "title": "Check List",
         "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
@@ -127,6 +130,7 @@
         "linkTo": "/categories"
       },
       {
+        "id": "4",
         "image": "/images/services/guestlist.png",
         "title": "Guest List",
         "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
@@ -134,6 +138,7 @@
         "linkTo": "/categories"
       },
       {
+        "id": "5",
         "image": "/images/services/vendors.png",
         "title": "Vendors",
         "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
@@ -141,6 +146,7 @@
         "linkTo": "/categories"
       },
       {
+        "id": "6",
         "image": "/images/services/registry.png",
         "title": "Registry List",
         "text": "Where you will save all your wedding memories forever, where you will choose your own personalized template, manage every event detail and let your guests share their pictures, videos and moments with you.",
@@ -151,61 +157,73 @@
   },
   "categories": [
     {
+      "id": "1",
       "image": "/images/categories/weddingDresses.png",
       "name": "Wedding Dresses",
       "to": "/category"
     },
     {
+      "id": "2",
       "image": "/images/categories/videographers.png",
       "name": "Videographers",
       "to": "/category"
     },
     {
+      "id": "3",
       "image": "images/categories/rings.png",
       "name": "Rings",
       "to": "/category"
     },
     {
+      "id": "4",
       "image": "/images/categories/weddingDresses.png",
       "name": "Wedding Dresses",
       "to": "/category"
     },
     {
+      "id": "5",
       "image": "/images/categories/videographers.png",
       "name": "Videographers",
       "to": "/category"
     },
     {
+      "id": "6",
       "image": "images/categories/rings.png",
       "name": "Rings",
       "to": "/category"
     },
     {
+      "id": "7",
       "image": "/images/categories/weddingDresses.png",
       "name": "Wedding Dresses",
       "to": "/category"
     },
     {
+      "id": "8",
       "image": "/images/categories/videographers.png",
       "name": "Videographers",
       "to": "/category"
     },
     {
+      "id": "9",
       "image": "images/categories/rings.png",
       "name": "Rings",
       "to": "/category"
     },
     {
+      "id": "10",
       "image": "/images/categories/weddingDresses.png",
       "name": "Wedding Dresses",
       "to": "/category"
     },
     {
+      "id": "11",
       "image": "/images/categories/videographers.png",
       "name": "Videographers",
       "to": "/category"
     },
     {
+      "id": "12",
       "image": "images/categories/rings.png",
       "name": "Rings",
       "to": "/category"
@@ -225,41 +243,49 @@
     },
     "relatedPhotos": [
       {
+        "id": "1",
         "image": "/images/weddingDetails.png",
         "title": "Wedding Dresses",
         "to": "/category"
       },
       {
+        "id": "2",
         "image": "/images/homeImage1.jpg",
         "title": "Videographers",
         "to": "/category"
       },
       {
+        "id": "3",
         "image": "images/weddingIdeas.jpg",
         "title": "Rings",
         "to": "/category"
       },
       {
+        "id": "4",
         "image": "/images/weddingDetails.png",
         "title": "Seashells-themed guestbook",
         "to": "/"
       },
       {
+        "id": "5",
         "image": "/images/homeImage1.jpg",
         "title": "Beating Hearts",
         "to": "/category"
       },
       {
+        "id": "6",
         "image": "images/weddingIdeas.jpg",
         "title": "The love of your life",
         "to": "/"
       },
       {
+        "id": "7",
         "image": "/images/homeImage2.jpg",
         "title": "Build Memories",
         "to": "/category"
       },
       {
+        "id": "8",
         "image": "/images/homeImage1.jpg",
         "title": "One block at a time",
         "to": "/"

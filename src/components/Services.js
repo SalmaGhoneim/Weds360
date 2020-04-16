@@ -24,7 +24,7 @@ const Services = props => {
           <p className="statement">{data.statement}</p>
           {data.services.map((service, i) => {
             return (
-              <div className="serviceCard" key={i}>
+              <div className="serviceCard" key={service.id}>
                 <div className="serviceImageContainer">
                   <img alt="" className="serviceImage" src={service.image} />
                 </div>

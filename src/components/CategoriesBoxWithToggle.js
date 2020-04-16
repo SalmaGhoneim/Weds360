@@ -71,7 +71,7 @@ const CategoriesBoxWithToggle = props => {
               categoriesInfo.startIndex + categoriesInfo.catPerRow
             )
             .map((category, i) => (
-              <div key={i} className="categoryContainer">
+              <div key={category.id} className="categoryContainer">
                 <img src={category.image} className="categoryImage" alt="" />
 
                 <p className="categoryTitle">{category.name}</p>
