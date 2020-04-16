@@ -32,6 +32,7 @@ const BreadCrumbs = props => {
           />
         );
       }
+      return null;
     });
     setFinalJSX(newJSX);
   }, [props]);

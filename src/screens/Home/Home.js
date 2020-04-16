@@ -22,6 +22,7 @@ const Home = () => {
         setLoading(false);
       });
   }, []);
+
   return (
     <div>
       {loading ? null : (
@@ -43,7 +44,7 @@ const Home = () => {
             <div className="gallery">
               <Gallery
                 data={
-                  pageInfo.currPage % 2 == 1
+                  pageInfo.currPage % 2 === 1
                     ? data.gallery["odd"]
                     : data.gallery["even"]
                 }
@@ -52,7 +53,7 @@ const Home = () => {
           </div>
           <div style={{ margin: "40px 0px 30px 0px" }}>
             <Pagination
-              pageCount={pageInfo.pageCount}
+              pageCount={parseInt(pageInfo.pageCount)}
               currPage={pageInfo.currPage}
               incrementPage={() =>
                 setPageInfo({ ...pageInfo, currPage: pageInfo.currPage + 1 })
@@ -60,7 +61,9 @@ const Home = () => {
               decrementPage={() =>
                 setPageInfo({ ...pageInfo, currPage: pageInfo.currPage - 1 })
               }
-              goToPage={page => setPageInfo({ ...pageInfo, currPage: page })}
+              goToPage={page =>
+                setPageInfo({ ...pageInfo, currPage: parseInt(page) })
+              }
             />
           </div>
 

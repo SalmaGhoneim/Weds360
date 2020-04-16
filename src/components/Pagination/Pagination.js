@@ -3,6 +3,9 @@ import "./Pagination.css";
 import paginationArrowRight from "../../assets/icons/paginationArrowRight.svg";
 const Pagination = props => {
   const start = props.currPage >= 8 ? props.currPage - 4 : 1;
+  console.log(props.currPage);
+  console.log(props.pageCount);
+  console.log(props.currPage === props.pageCount);
 
   return (
     <div className="pagination">
@@ -25,7 +28,7 @@ const Pagination = props => {
           onClick={() => props.goToPage(1)}
           key="page1"
           className={
-            props.currPage == 1 ? "pageNumberBox selected" : "pageNumberBox"
+            props.currPage === 1 ? "pageNumberBox selected" : "pageNumberBox"
           }
         >
           1
@@ -38,7 +41,7 @@ const Pagination = props => {
           onClick={() => props.goToPage(2)}
           key="page2"
           className={
-            props.currPage == 2 ? "pageNumberBox selected" : "pageNumberBox"
+            props.currPage === 2 ? "pageNumberBox selected" : "pageNumberBox"
           }
         >
           2
@@ -57,7 +60,7 @@ const Pagination = props => {
               onClick={() => props.goToPage(start + i)}
               key={"page" + i}
               className={
-                props.currPage == start + i
+                props.currPage === start + i
                   ? "pageNumberBox selected"
                   : "pageNumberBox"
               }
@@ -76,7 +79,7 @@ const Pagination = props => {
         <div
           onClick={() => props.goToPage(props.pageCount - 1)}
           className={
-            props.currPage == props.pageCount - 1
+            props.currPage === props.pageCount - 1
               ? "pageNumberBox selected"
               : "pageNumberBox"
           }
@@ -90,7 +93,7 @@ const Pagination = props => {
         <div
           onClick={() => props.goToPage(props.pageCount)}
           className={
-            props.currPage == props.pageCount
+            props.currPage === props.pageCount
               ? "pageNumberBox selected"
               : "pageNumberBox"
           }
@@ -102,7 +105,7 @@ const Pagination = props => {
       <div
         onClick={props.incrementPage}
         className={
-          props.currPage == props.pageCount
+          props.currPage === props.pageCount
             ? "pageNumberBox prevNextBox disabled"
             : "pageNumberBox prevNextBox"
         }

@@ -53,7 +53,7 @@ const Header = () => {
   });
 
   const isHeaderVisible = () => {
-    if (headerVisible != window.pageYOffset < 120) {
+    if (headerVisible !== Boolean(window.pageYOffset < 120)) {
       setHeaderVisible(window.pageYOffset < 120);
     }
     return window.pageYOffset < 120;
@@ -150,7 +150,7 @@ const Header = () => {
         >
           {dropDownStatus.options.map((option, i) => {
             let styles = {};
-            if (i == dropDownStatus.options.length - 1) {
+            if (i === dropDownStatus.options.length - 1) {
               styles.borderBottom = "none";
             }
             return (

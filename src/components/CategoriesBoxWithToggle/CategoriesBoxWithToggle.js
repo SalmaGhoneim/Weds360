@@ -36,6 +36,7 @@ const CategoriesBoxWithToggle = props => {
     window.addEventListener("resize", updateCatPerRow, { passive: true });
     return () => window.removeEventListener("resize", updateCatPerRow);
   }, []);
+
   const updateCatPerRow = () => {
     if (window.matchMedia("(min-width: 1440px)").matches) {
       setCategoriesInfo({ ...categoriesInfo, catPerRow: 10 });

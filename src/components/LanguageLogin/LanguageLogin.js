@@ -37,7 +37,7 @@ const LanguageLogin = () => {
 
   const dispatch = useDispatch();
 
-  let otherLanguage = currLanguage == "ar" ? "English" : "العربية";
+  let otherLanguage = currLanguage === "ar" ? "English" : "العربية";
 
   return (
     <LanguageLoginContainer>
